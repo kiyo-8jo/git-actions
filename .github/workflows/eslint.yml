@@ -10,7 +10,7 @@ jobs:
       - name: npm install
         run: npm install
       - name: eslint review
-        uses: reviewdov/action-eslint@v1
+        uses: reviewdog/action-eslint@v1
         with:
           github_tokekn: ${{secrets.github_token}}
           reporter: github-pr-review
