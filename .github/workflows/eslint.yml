@@ -1,0 +1,21 @@
+name: eslint
+
+on : [ pull_request ]
+
+jobs:
+  eslint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: npm install
+        run: npm install
+      - name: eslint review
+        uses: reviewdov/action-eslint@v1
+        with:
+          github_tokekn: ${{secrets.github_token}}
+          reporter: github-pr-review
+          eslint_flag: './**/*.{ts,js}'
+          fail_on_error: 'true'
+      - name: eslint
+        run: npm run lint
+  
